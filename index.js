@@ -12,10 +12,6 @@ const connection = mysql.createConnection({
 
 connection.connect()
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
 app.get('/pokemon', (req, res) => {
     connection.query('CALL get_pokemon();', (err, results, fields) => {
         let pokemon = results[0]
